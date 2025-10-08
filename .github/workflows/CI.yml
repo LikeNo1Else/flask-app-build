@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13' 
-      - run: python install pytest flask-testing
+      - run: pip install pytest flask-testing
 
       - name: Run unit test
         run: pytest
