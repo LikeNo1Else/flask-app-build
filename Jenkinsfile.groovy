@@ -28,21 +28,20 @@ node("docker") {
         git branch: 'main', url: 'https://github.com/liken01else/flask-app-build.git'
     } 
 
-
     withCredentials([usernamePassword(credentialsId: 'docker-creds', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
-   
-    stage("Docker Hub logging") {
+
+    stage("Docker login") {
         sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
     }
 
     stage("Docker build") {
         sh "docker build -t ${DOCKER_USER}/jenkins-flask-app:1.0.0 ."
     }
-   
+
     stage("Docker push") {
         sh "docker push ${DOCKER_USER}/jenkins-flask-app:1.0.0"
     }
-   }
-  }
- }
+    }
+    }
+}
 }
