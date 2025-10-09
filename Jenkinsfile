@@ -25,7 +25,7 @@ podTemplate(cloud: 'kubernetes', label: 'docker', yaml: template) {
 node("docker") {
     container("docker") {
     stage("Checkout SCM") { 
-        git branch: 'main', url: 'https://github.com/liken01else/flask-app-build.git'
+        git branch: 'main', url: 'https://github.com/LikeNo1Else/flask-app-build.git'
     } 
 
     withCredentials([usernamePassword(credentialsId: 'docker-creds', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
