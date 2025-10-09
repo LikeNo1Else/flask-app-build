@@ -21,6 +21,7 @@ spec:
       path: /var/run/docker.sock
     '''
 
+
 podTemplate(cloud: 'kubernetes', label: 'docker', yaml: template) {
 node("docker") {
     container("docker") {
